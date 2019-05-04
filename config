@@ -259,6 +259,36 @@ zprobe.fast_feedrate                         100             # move feedrate mm/
 zprobe.probe_height                          5               # how much above bed to start probe
 #gamma_min_endstop                           nc              # normally 1.28. Change to nc to prevent conflict,
 
+
+# Switch module for Bltouch control
+switch.servo.enable                        true          # Activate this new module
+switch.servo.input_on_command              M280          # Command to set PWM value
+switch.servo.input_off_command             M281          # Command to turn off switch
+switch.servo.output_pin                    3.26          # This must be a PWM pin, see smoothieware.org/pinout   
+switch.servo.output_type                   hwpwm         # Hardware PWM, as software PWM is not adequate for servo/bltouch
+switch.servo.pwm_period_ms                 20            # 20ms period, or 50Hz
+
+custom_menu.blt_probe_out.enable           true            #
+custom_menu.blt_probe_out.name             BLT_Probe_Out   #
+custom_menu.blt_probe_out.command          M280S3          #
+
+custom_menu.blt_probe_In.enable           true             #
+custom_menu.blt_probe_In.name             BLT_Probe_In     #
+custom_menu.blt_probe_In.command          M280S7           #
+
+custom_menu.blt_reset_alarm.enable        true             #
+custom_menu.blt_reset_alarm.name          BLT_Reset_Alarm  #
+custom_menu.blt_reset_alarm.command       M280S10.6        #
+
+custom_menu.blt_test_alarm.enable         true             #
+custom_menu.blt_test_alarm.name           BLT_Test_Alarm   #
+custom_menu.blt_test_alarm.command        M280S8.4|G4S15|M280S10.6|M280S7 #Runs Self Test 15secs resets and pulls pin up
+
+custom_menu.blt_probe_bed.enable          true                             #
+custom_menu.blt_probe_bed.name            BLT_Probe_Bed                    #
+custom_menu.blt_probe_bed.command         M280_S3.0|G32|M280_S7.0|G1X10Y10 # 
+
+
 # associated with zprobe the leveling strategy to use
 #leveling-strategy.three-point-leveling.enable         true        # a leveling strategy that probes three points to define a plane and keeps the Z parallel to that plane
 #leveling-strategy.three-point-leveling.point1         100.0,0.0   # the first probe point (x,y) optional may be defined with M557
