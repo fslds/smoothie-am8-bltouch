@@ -221,7 +221,7 @@ beta_max_endstop                             nc #1.27^            #
 beta_homing_direction                        home_to_min      #
 beta_min                                     -10                #
 beta_max                                     200              #
-gamma_min_endstop                            1.28^            #
+gamma_min_endstop                            1.29!^            #
 gamma_max_endstop                            #nc 1.29^            #
 gamma_homing_direction                       home_to_min      #
 gamma_min                                    -1                #
