@@ -15,10 +15,10 @@ gamma_steps_per_mm                           400               # Steps per mm fo
 
 # Planner module configuration : Look-ahead and acceleration configuration
 planner_queue_size                           32               # DO NOT CHANGE THIS UNLESS YOU KNOW EXACTLY WHAT YOU ARE DOING
-acceleration                                 3000             # Acceleration in mm/second/second.
+acceleration                                 1700             # Acceleration in mm/second/second.
 #z_acceleration                              500              # Acceleration for Z only moves in mm/s^2, 0 uses acceleration which is the default. DO NOT SET ON A DELTA
 acceleration_ticks_per_second                1000             # Number of times per second the speed is updated
-junction_deviation                           0.05             # Similar to the old "max_jerk", in millimeters,
+junction_deviation                           0.03             # Similar to the old "max_jerk", in millimeters,
                                                               # see https://github.com/grbl/grbl/blob/master/planner.c
                                                               # and https://github.com/grbl/grbl/wiki/Configuring-Grbl-v0.8
                                                               # Lower values mean being more careful, higher values means being
@@ -39,19 +39,19 @@ z_axis_max_speed                             150              # mm/min
 alpha_step_pin                               2.0              # Pin for alpha stepper step signal
 alpha_dir_pin                                0.5              # Pin for alpha stepper direction
 alpha_en_pin                                 0.4              # Pin for alpha enable pin
-alpha_current                                1.68              # X stepper motor current
+alpha_current                                1.4              # X stepper motor current
 alpha_max_rate                               30000.0          # mm/min
 
 beta_step_pin                                2.1              # Pin for beta stepper step signal
 beta_dir_pin                                 0.11             # Pin for beta stepper direction
 beta_en_pin                                  0.10             # Pin for beta enable
-beta_current                                 1.68             # Y stepper motor current
+beta_current                                 1.4             # Y stepper motor current
 beta_max_rate                                30000.0          # mm/min
 
 gamma_step_pin                               2.2              # Pin for gamma stepper step signal
 gamma_dir_pin                                0.20!             # Pin for gamma stepper direction, ! for reversing
 gamma_en_pin                                 0.19             # Pin for gamma enable
-gamma_current                                1.68              # Z stepper motor current
+gamma_current                                1.4              # Z stepper motor current
 gamma_max_rate                               300.0            # mm/min
 
 ## System configuration
@@ -97,7 +97,7 @@ extruder.hotend.y_offset                        15                # y offset fro
 #extruder.hotend.retract_zlift_length            0               # zlift on retract in mm, 0 disables
 #extruder.hotend.retract_zlift_feedrate          6000            # zlift feedrate in mm/min (Note mm/min NOT mm/sec)
 
-delta_current                                1.5              # First extruder stepper motor current
+delta_current                                1.1             # First extruder stepper motor current
 
 # Second extruder module configuration
 #extruder.hotend2.enable                          true             # Whether to activate the extruder module at all. All configuration is ignored if false
