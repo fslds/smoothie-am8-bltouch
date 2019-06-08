@@ -1,0 +1,25 @@
+M84 ;steppers off for cooling
+G21 ;metric values
+G90 ;absolute positioning
+M82 ;set extruder to absolute mode
+M107 ;start with the fan off
+G28 X0 Y0 ;move X/Y to min endstops
+G28 Z0 ;move Z to min endstops
+G92 E0 ;zero the extruded length again
+G1 Z30.0 F9000 ;move the platform down 30mm
+M280 S3.0; Bed Probing - BL Touch test
+G32 ; Probing sequence
+M280 S7.0; Probe the bed - end
+G1 X100 Y100; Move to center position
+M280 S10.6; Move to Z0 and set offset
+M280 S3.0
+G30 Z2.2
+M280 S7.0
+M500
+M280 S10.6
+M280 S7.0
+M280 S10.6
+G1 Z20; Move to Z20
+G1 F9000
+G92 E0 ;zero the extruded length again
+M117 Printing... ;Put printing messageon LCD screen
